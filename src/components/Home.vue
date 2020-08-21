@@ -1,10 +1,13 @@
 <template>
-  <div>Home component</div>
+  <todo-list />
 </template>
 
 <script>
 export default {
   name: "Home",
+  components: {
+    "todo-list": () => import("../components/stateful/TodoList"),
+  },
   props: {
     msg: String,
   },
