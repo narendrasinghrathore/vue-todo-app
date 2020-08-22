@@ -4,7 +4,7 @@
       <v-icon>{{item.complete ? 'mdi-checkbox-marked-circle-outline':'mdi-checkbox-blank-circle-outline'}}</v-icon>
     </v-list-item-icon>
     <v-list-item-content>
-      <v-list-item-title v-text="item.text"></v-list-item-title>
+      <v-list-item-title>{{item.text}}</v-list-item-title>
     </v-list-item-content>
   </v-list-item>
 </template>
