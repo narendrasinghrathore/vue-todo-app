@@ -1,6 +1,6 @@
 <template>
-  <v-list-item v-on:click.ctrl.exact="updateItem">
-    <v-list-item-icon>
+  <v-list-item>
+    <v-list-item-icon v-on:click.exact="updateItem">
       <v-icon>{{item.complete ? 'mdi-checkbox-marked-circle-outline':'mdi-checkbox-blank-circle-outline'}}</v-icon>
     </v-list-item-icon>
     <v-list-item-content>

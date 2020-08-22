@@ -32,11 +32,10 @@ export default {
     updateTodo: function (item) {
       const { id, text, complete } = item;
       const items = [...this.items];
-      const index = items.findIndex((item) => item.id === id);
+      const index = items.findIndex((todo) => todo.id === id);
       const i = { id, text, complete: !complete };
-      if (index) items[index] = i;
+      if (index > -1) items[index] = i;
       this.items = items;
-      console.log(id, text, complete, index, i);
     },
   },
 };
