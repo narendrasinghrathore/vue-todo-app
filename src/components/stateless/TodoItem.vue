@@ -8,7 +8,11 @@
       </v-icon>
     </v-list-item-icon>
     <v-list-item-content>
-      <v-list-item-title>{{item.text}}</v-list-item-title>
+      <v-list-item-title
+        v-strike="item"
+        :aria-label="item.text"
+        :data-title="item.text"
+      >{{item.text}}</v-list-item-title>
     </v-list-item-content>
   </v-list-item>
 </template>
@@ -19,6 +23,12 @@ export default {
     item: {
       title: String,
       complete: Boolean,
+    },
+  },
+  directives: {
+    strike: function (el, bind) {
+      const completed = bind.value.complete;
+      el.style.textDecoration = completed ? "line-through" : "none";
     },
   },
   methods: {
