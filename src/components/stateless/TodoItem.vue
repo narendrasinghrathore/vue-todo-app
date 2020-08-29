@@ -13,6 +13,7 @@
         :aria-label="item.text"
         :data-title="item.text"
       >{{item.text}}</v-list-item-title>
+      <v-list-item-subtitle>{{item.datetime | timestamp('en-GB')}}</v-list-item-subtitle>
     </v-list-item-content>
   </v-list-item>
 </template>
@@ -23,12 +24,19 @@ export default {
     item: {
       title: String,
       complete: Boolean,
+      datetime: Number,
     },
   },
   directives: {
     strike: function (el, bind) {
       const completed = bind.value.complete;
       el.style.textDecoration = completed ? "line-through" : "none";
+    },
+  },
+  filters: {
+    timestamp: function (val, format) {
+      format = format || "en-US";
+      return val ? new Intl.DateTimeFormat(format).format(new Date(val)) : "";
     },
   },
   methods: {

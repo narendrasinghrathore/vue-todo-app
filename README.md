@@ -32,15 +32,25 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Features
 
-1. Custom directives [@TodoItem.vue](./src/components/stateless/TodoItem.vue)
+1. Custom directives [@TodoItem.vue](./src/components/stateless/TodoItem.vue#L28)
    Below custom directive allow us to apply text decoration line through if todo item is marked as complete.
 
-```javascript
-directives: {
-    strike: function (el, bind) {
-        const completed = bind.value.complete;
-        el.style.textDecoration = 
-            completed ? "line-through" : "none";
+    ```javascript
+    directives: {
+        strike: function (el, bind) {
+            const completed = bind.value.complete;
+            el.style.textDecoration = 
+                completed ? "line-through" : "none";
+            },
+    },
+    ```
+
+2. Custom filters with arguements [@TodoItem.vue](src/components/stateless/TodoItem.vue#L36)
+
+    ```javascript
+    filters: {
+        timestamp: function (val, format) {
+        format = format || "en-US";
+        return val ? new Intl.DateTimeFormat(format).format(new Date(val)) : "";
         },
-},
-```
+    ```

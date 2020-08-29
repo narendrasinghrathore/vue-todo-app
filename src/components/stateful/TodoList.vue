@@ -23,9 +23,24 @@ export default {
   data: () => ({
     selectedItem: "",
     items: [
-      { id: uid(32), text: "Real-Time", complete: false },
-      { id: uid(32), text: "Audience", complete: true },
-      { id: uid(32), text: "Conversions", complete: false },
+      {
+        id: uid(32),
+        text: "Real-Time",
+        complete: false,
+        datetime: new Date().getTime(),
+      },
+      {
+        id: uid(32),
+        text: "Audience",
+        complete: true,
+        datetime: new Date().getTime(),
+      },
+      {
+        id: uid(32),
+        text: "Conversions",
+        complete: false,
+        datetime: new Date().getTime(),
+      },
     ],
   }),
   methods: {
