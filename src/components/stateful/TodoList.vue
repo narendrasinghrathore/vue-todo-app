@@ -14,41 +14,22 @@
   </v-card>
 </template>
 <script>
-import uid from "uid";
+import { listItems } from "../../mixins/listItems.mixin";
 export default {
   name: "todo-list",
+  mixins: [listItems],
   components: {
     "todo-item": () => import("../stateless/TodoItem"),
   },
   data: () => ({
     selectedItem: "",
-    items: [
-      {
-        id: uid(32),
-        text: "Real-Time",
-        complete: false,
-        datetime: new Date().getTime(),
-      },
-      {
-        id: uid(32),
-        text: "Audience",
-        complete: true,
-        datetime: new Date().getTime(),
-      },
-      {
-        id: uid(32),
-        text: "Conversions",
-        complete: false,
-        datetime: new Date().getTime(),
-      },
-    ],
   }),
   methods: {
     updateTodo: function (item) {
-      const { id, text, complete } = item;
+      const { id, text, complete, datetime } = item;
       const items = [...this.items];
       const index = items.findIndex((todo) => todo.id === id);
-      const i = { id, text, complete: !complete };
+      const i = { id, text, complete: !complete, datetime };
       if (index > -1) items[index] = i;
       this.items = items;
     },
